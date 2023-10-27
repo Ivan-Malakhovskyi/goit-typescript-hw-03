@@ -31,7 +31,9 @@ abstract class House {
     if (this.door) {
       this.tenants.push(person);
       console.log(`${person.getKey().getSignature()} enter in House`);
+      return;
     }
+
     console.log("Door is close");
   }
 
@@ -48,7 +50,9 @@ class MyHouse extends House {
     if (key.getSignature() === this.key.getSignature()) {
       this.door = true;
       console.log("Door is open");
+      return;
     }
+
     console.log("Door is closed");
   }
 }
@@ -59,5 +63,12 @@ const house = new MyHouse(key);
 house.openDoor(person.getKey());
 
 house.comeIn(person);
+
+// const wrongKey = new Key();
+// const unknownPerson = new Person(wrongKey);
+// const testHouse = new MyHouse(wrongKey);
+
+// testHouse.openDoor(unknownPerson.getKey());
+// testHouse.comeIn(unknownPerson);
 
 export {};

@@ -20,11 +20,7 @@ class Employee {
     public name: string,
     private department: string,
     protected salary: number
-  ) {
-    this.name = name;
-    this.department = department;
-    this.salary = salary;
-  }
+  ) {}
 
   getEmployeeDetails() {
     return `Name: ${this.name}, Department: ${this.department}, Salary: ${this.salary}`;
@@ -32,12 +28,12 @@ class Employee {
 }
 
 class Manager extends Employee {
-  constructor(salary: number) {
-    super("Employee", "Managment", salary + 10000);
+  constructor(name: string, salary: number) {
+    super(name, "Managment", salary + 10000);
   }
   // Реалізуйте конструктор та збільшіть salary на 10000
 }
 
-const manager = new Manager(10000);
+const manager = new Manager("Ivan", 10000);
 
 export { manager };
